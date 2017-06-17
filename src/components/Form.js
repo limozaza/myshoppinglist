@@ -9,6 +9,11 @@ class Form  extends React.Component{
   handelSubmit = (e) => {
     e.preventDefault();
     this.props.addArticle(this.state);
+
+    this.setState({
+      name:'',
+      quantity:0
+    })
   };
 
   render(){

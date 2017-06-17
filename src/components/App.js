@@ -10,6 +10,7 @@ class App extends React.Component{
   }
 
   addArticle = (article) =>{
+    article.id = Date.now();
     let articles = [...this.state.articles, article];
     this.setState({articles});
   }
@@ -18,7 +19,7 @@ class App extends React.Component{
       <div>
         <h3>Liste de courses</h3>
         <Form formTitle="Ajouter des articles à acheter" addArticle={this.addArticle}/>
-        <ItemList />
+        <ItemList articles={this.state.articles}/>
       </div>
         );
   }

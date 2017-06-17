@@ -1,9 +1,11 @@
 import React from 'react';
 
-const ItemList = () => {
+const ItemList = (props) => {
   return (
     <div>
-      ItemList component
+      {
+        props.articles.map(article => <div key={article.id}>{article.name}</div>)
+      }
     </div>
   );
 };
