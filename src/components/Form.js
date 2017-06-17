@@ -6,13 +6,16 @@ class Form  extends React.Component{
     quantity: 0
   };
 
-
+  handelSubmit = (e) => {
+    e.preventDefault();
+    this.props.addArticle(this.state);
+  };
 
   render(){
     return(
       <div>
-        <h3>Ajouter des articles à acheter</h3>
-        <form>
+        <h3>{this.props.formTitle}</h3>
+        <form onSubmit={this.handelSubmit}>
           <input type="number" placeholder="quantité" value={this.state.quantity}
             onChange={
               (e) => this.setState({quantity: e.target.value})
