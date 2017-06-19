@@ -7,7 +7,7 @@ class App extends React.Component{
 
   state ={
     articles: []
-  }
+  };
 
   addArticle = (article) =>{
     article.id = Date.now();
