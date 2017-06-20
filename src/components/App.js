@@ -10,17 +10,6 @@ class App extends React.Component{
   state ={
     articles: []
   };
-
-  /*addArticle = (article) =>{
-    article.id = Date.now();
-    let articles = [...this.state.articles, article];
-    this.setState({articles});
-  }*/
-/*
-  addArticle = (article) => {
-    //this.props.dispatch({type: 'ADD_ARTICLE',payload: article})
-    this.props.addArticle(article);
-  };*/
   render(){
     return(
       <div>
@@ -31,6 +20,13 @@ class App extends React.Component{
         );
   }
 }
+const addArticleActionCreator = (article) => {
+  return {
+    type: 'ADD_ARTICLE',
+    payload: article
+  }
+}
+
 const mapStateToProps = (state) => {
   return{
     articles: state.articles
@@ -40,10 +36,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return{
     addArticle: (article) => {
-      dispatch({
-        type: 'ADD_ARTICLE',
-        payload: article
-      })
+      dispatch(
+        addArticleActionCreator(article)
+      )
     }
   }
 };
