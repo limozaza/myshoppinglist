@@ -19,6 +19,17 @@ const articlesReducer = (state=[], action) => {
       const newState = [...state, action.payload];
       return newState;
       //break;
+    case "EDIT_ARTICLE":
+      console.log('EDIT_ARTICLE');
+      console.log('action : ',action);
+
+      const articleId = action.payload.id;
+      return state.map(article => {
+        if(article !== articleId){
+          return article;
+        }
+        return action.payload;
+      })
     default:
       return state;
 

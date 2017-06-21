@@ -1,44 +1,14 @@
 import React from 'react';
+import Article from './Article';
 
 const ItemList = (props) => {
   return (
     <div>
       {
-        props.articles.map(article => <div key={article.id}>{article.name}</div>)
+        props.articles.map(article => <Article data={article} key={article.id} editArticle={props.editArticle}/>)
       }
     </div>
   );
 };
 
 export default ItemList;
-
-
-/*
-{
-  type: 'ADD_ARTICLE',
-  playload : {
-  id: 1,
-  quantity: 2,
-  name: 'coca'
-  }
-}
-{
-  type: 'ADD_ARTICLE',
-  playload : article
-}
-{
-  type: 'EDIT_ARTICLE',
-  playload : article
-}
-
-
-let state ={
-  articles: []
-}
-
-let addArticleReducer = (state, action) =>{
-  return newState;
-}
-
-
-*/
